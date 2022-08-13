@@ -1,0 +1,20 @@
+[Unit]
+Description=zookeeper
+Documentation=http://zookeeper.apache.org
+Requires=network.target
+After=network.target
+
+[Service]
+Type=forking
+User=ubt
+Group=ubt
+SyslogIdentifier=zookeeper
+WorkingDirectory=/usr/local/zookeeper
+Restart=on-failure
+RestartSec=3s
+ExecStart=/usr/local/zookeeper/bin/zkServer.sh start
+ExecStop=/usr/local/zookeeper/bin/zkServer.sh stop
+ExecReload=/usr/local/zookeeper/bin/zkServer.sh restart
+
+[Install]
+WantedBy=default.target
