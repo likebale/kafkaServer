@@ -1,0 +1,19 @@
+[Unit]
+Description=kafka
+Documentation=http://kafka.apache.org
+Requires=zookeeper.service
+After=zookeeper.service
+
+[Service]
+Type=forking
+User=ubt
+Group=ubt
+SyslogIdentifier=kafka
+WorkingDirectory=/usr/local/kafka
+Restart=on-abnormal
+RestartSec=3s
+ExecStart=/usr/local/kafka/bin/kafka-server-start.sh -daemon /usr/local/kafka/config/server.properties
+ExecStop=/usr/local/kafka/bin/kafka-server-stop.sh
+
+[Install]
+WantedBy=default.target
