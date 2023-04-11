@@ -1,4 +1,4 @@
-# myserver
+# myserver for Kafka clustring
 ubuntu server setting for kafka
 
 ---------------- install kafka ------------------------------------------
